@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+							<!-- Content -->
+								<section>
+									<header class="main">
+										<h1>{{ country.name }}</h1>
+									</header>
+
+									<p>
+										{% if country.created %}
+										{{ country.created }}
+										{% else %}
+										{{ country.updated }}
+										{% endif %}
+									</p>
+
+									<span class="image main"><img src="{{ country.get_image }}" style="width:600px; height:600px" alt="" /></span>
+
+									<p>Author: {{ country.user.username }}</p>
+
+									<hr class="major" />
+									{% for image in images %}
+									<img src="{{ image }}"  style="width:500px; height:500px;"   class="img-thumbnail" alt="...">
+									{% endfor %}
+
+
+									<h2>GET MORE DETAILS HERE</h2>
+									<p>{{ country.description }}</p>
+
+
+
+								</section>
+
+{% endblock %}
